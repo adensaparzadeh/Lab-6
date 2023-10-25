@@ -9,19 +9,40 @@ def encoder(password):
     string = ''.join(list)
     return string
 
+def decoder(decode):
+    list = []
+
+    for i in range(0, len(decode)):
+        temp = int(decode[i])
+        temp += 3
+        if temp >= 10:
+            temp %= 10
+        list.append(str(temp))
+    string = ''.join(list)
+    return string
+
+if __name__ == '__main__':
+
+    while True:
+        print("Menu\n-------------")
+        print("1. Encode")
+        print("2. Decode")
+        print("3. Quit")
+        choice = input("Please enter an option:")
+        if choice == "1":
+            user_pass = input("Please enter your password to encode:")
+            new_pass = encoder(user_pass)
+            print("Your password has been encoded and stored!")
+
+        if choice == "2":
+
+            new_pass1 = decoder(user_pass)
+            print(f'The encoded password is{decoder(new_pass)}, and the original password is {new_pass1}.')
 
 
 
+        if choice == "3":
+            break
 
-while True:
-    print("Menu\n-------------\n1. Encode\n2. Decode\n3. Quit")
-    choice = int(input("\nPlease enter an option: "))
-    if choice == 1:
-        user_pass = input("Please enter your password to encode: ")
-        encoder(user_pass)
-        print("Your password has been encoded and stored!\n\n")
-    if choice == 2:
-        user_pass = input("Please enter your password to decode: ")
-    if choice == 3:
-        break
+
 
